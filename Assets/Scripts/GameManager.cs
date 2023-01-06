@@ -61,18 +61,24 @@ public class GameManager : MonoBehaviour
     #endregion 
 
     #region My attempt
-    [SerializeField] private GameObject _cubeToSpawn;
-    [SerializeField] private GameObject _shpereToSpawn;
-    [SerializeField] private GameObject _cylinderToSpawn;
-    [SerializeField] private GameObject _capsuleToSpawn;
+    // [SerializeField] private GameObject _cubeToSpawn;
+    // [SerializeField] private GameObject _shpereToSpawn;
+    // [SerializeField] private GameObject _cylinderToSpawn;
+    // [SerializeField] private GameObject _capsuleToSpawn;
+
+    [SerializeField] private GameObject[] _chooseObject;
     
     private void Update() 
     {
         if(Input.GetMouseButtonDown(0))
         {
-            Vector3 wordPos = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x,Input.mousePosition.y,Random.Range(10.0f,50.0f)));
-            Instantiate(_cubeToSpawn, wordPos, Quaternion.identity);
-        }    
+            Vector3 wordPos = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x,Input.mousePosition.y,Random.Range(5.0f,50.0f)));
+            // Instantiate(_cubeToSpawn, wordPos, Quaternion.identity);
+            // Instantiate(_shpereToSpawn, wordPos, Quaternion.identity);
+            // Instantiate(_cylinderToSpawn, wordPos, Quaternion.identity);
+            // Instantiate(_capsuleToSpawn, wordPos, Quaternion.identity);
+            Instantiate(_chooseObject[Random.Range(0,_chooseObject.Length)],wordPos, Quaternion.identity);
+        }       
     }
     #endregion
 }
