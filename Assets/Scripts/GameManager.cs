@@ -67,10 +67,12 @@ public class GameManager : MonoBehaviour
     // [SerializeField] private GameObject _capsuleToSpawn;
 
     [SerializeField] private GameObject[] _chooseObject;
+    private int _actualItems;
+    private int _maxItemSpawnable = 10;
     
     private void Update() 
     {
-        if(Input.GetMouseButtonDown(0))
+        if(Input.GetMouseButtonDown(0) && _actualItems <= _maxItemSpawnable -1)
         {
             Vector3 wordPos = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x,Input.mousePosition.y,Random.Range(5.0f,50.0f)));
             // Instantiate(_cubeToSpawn, wordPos, Quaternion.identity);
@@ -78,6 +80,9 @@ public class GameManager : MonoBehaviour
             // Instantiate(_cylinderToSpawn, wordPos, Quaternion.identity);
             // Instantiate(_capsuleToSpawn, wordPos, Quaternion.identity);
             Instantiate(_chooseObject[Random.Range(0,_chooseObject.Length)],wordPos, Quaternion.identity);
+             _actualItems ++;
+            
+           
         }       
     }
     #endregion
