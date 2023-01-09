@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class GameManager : MonoBehaviour
 {
     #region Using Raycast ChatGPT
@@ -69,6 +70,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject[] _chooseObject;
     private int _actualItems;
     private int _maxItemSpawnable = 10;
+
+
     
     private void Update() 
     {
@@ -86,4 +89,6 @@ public class GameManager : MonoBehaviour
         }       
     }
     #endregion
+
+   
 }
